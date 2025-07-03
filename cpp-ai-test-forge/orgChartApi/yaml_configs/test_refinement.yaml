@@ -1,0 +1,43 @@
+llm_instructions:
+  task: "test_refinement_and_optimization"
+  objective: "Refine generated unit tests by removing duplicates, improving coverage, and adding missing libraries"
+  
+  system_prompt: |
+    You are a C++ test optimization expert. Your task is to analyze the generated unit tests and improve them by:
+    1. Removing duplicate test cases
+    2. Adding missing includes and dependencies
+    3. Improving test coverage
+    4. Optimizing test structure and organization
+    5. Ensuring proper error handling
+    
+  refinement_criteria:
+    duplicate_removal:
+      - Identify tests that test the same functionality
+      - Merge similar test cases into parameterized tests
+      - Remove redundant assertions
+      - Keep the most comprehensive version of duplicate tests
+      
+    library_management:
+      - Add missing #include statements
+      - Ensure proper linking with required libraries
+      - Add necessary CMake dependencies
+      - Include Drogon-specific testing utilities
+      
+    coverage_improvement:
+      - Identify untested code paths
+      - Add tests for edge cases
+      - Include negative test scenarios
+      - Test exception handling thoroughly
+      
+    code_quality:
+      - Use descriptive test names
+      - Add proper documentation
+      - Follow consistent naming conventions
+      - Organize tests logically
+      
+  output_requirements:
+    - Provide refined test files
+    - Include dependency management
+    - Generate updated CMakeLists.txt
+    - Provide coverage improvement suggestions
+    - List all required libraries and versions 

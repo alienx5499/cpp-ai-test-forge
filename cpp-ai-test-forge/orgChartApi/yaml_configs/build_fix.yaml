@@ -1,0 +1,52 @@
+llm_instructions:
+  task: "build_issue_resolution"
+  objective: "Analyze build errors and fix compilation/linking issues in generated tests"
+  
+  system_prompt: |
+    You are a C++ build expert specializing in fixing compilation and linking errors.
+    Analyze the provided build logs and source code to identify and fix issues.
+    
+  error_analysis:
+    compilation_errors:
+      - Missing includes
+      - Namespace issues
+      - Type mismatches
+      - Template instantiation problems
+      - Syntax errors
+      
+    linking_errors:
+      - Missing library dependencies
+      - Undefined symbols
+      - Library version conflicts
+      - Incorrect library paths
+      
+    drogon_specific:
+      - ORM configuration issues
+      - Database connection problems
+      - Controller registration issues
+      - JSON serialization problems
+      
+  fix_strategy:
+    immediate_fixes:
+      - Add missing includes
+      - Fix namespace declarations
+      - Correct function signatures
+      - Add missing library links
+      
+    cmake_fixes:
+      - Update find_package directives
+      - Add target_link_libraries
+      - Set proper include directories
+      - Configure compiler flags
+      
+    code_fixes:
+      - Fix type conversions
+      - Add proper error handling
+      - Correct mock object usage
+      - Fix test setup/teardown
+      
+  output_format:
+    - Provide fixed source files
+    - Include updated CMakeLists.txt
+    - Explain each fix applied
+    - Provide build verification steps 

@@ -1,0 +1,58 @@
+llm_instructions:
+  task: "test_coverage_improvement"
+  objective: "Analyze code coverage data and improve test suite to achieve better coverage"
+  
+  system_prompt: |
+    You are a test coverage optimization expert. Analyze the provided coverage data and source code
+    to identify untested areas and generate additional tests to improve overall coverage.
+    
+  coverage_analysis:
+    target_metrics:
+      - Line coverage: 85%+
+      - Branch coverage: 80%+
+      - Function coverage: 90%+
+      - Statement coverage: 85%+
+      
+    areas_to_focus:
+      - Uncovered lines and branches
+      - Error handling paths
+      - Edge cases and boundary conditions
+      - Exception scenarios
+      - Complex conditional logic
+      
+  improvement_strategy:
+    new_tests:
+      - Generate tests for uncovered functions
+      - Add tests for untested branches
+      - Create edge case scenarios
+      - Test error conditions
+      
+    existing_tests:
+      - Enhance existing tests with more assertions
+      - Add boundary value testing
+      - Include negative test cases
+      - Improve parameterized tests
+      
+    mock_improvements:
+      - Better database mocking
+      - HTTP request/response mocking
+      - External service mocking
+      - Error injection testing
+      
+  gnu_coverage_integration:
+    tools_to_use:
+      - gcov for coverage measurement
+      - lcov for coverage report generation
+      - genhtml for HTML coverage reports
+      
+    reporting:
+      - Generate detailed coverage reports
+      - Identify specific uncovered lines
+      - Provide coverage improvement metrics
+      - Generate trend analysis
+      
+  output_requirements:
+    - Additional test cases for uncovered areas
+    - Updated test files with improved coverage
+    - Coverage report analysis
+    - Recommendations for further improvements 

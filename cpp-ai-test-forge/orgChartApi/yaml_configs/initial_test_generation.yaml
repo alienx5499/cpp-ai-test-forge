@@ -1,0 +1,42 @@
+llm_instructions:
+  task: "initial_unit_test_generation"
+  objective: "Generate comprehensive unit tests for C++ Drogon-based REST API"
+  
+  system_prompt: |
+    You are an expert C++ unit test generator specializing in Drogon framework applications.
+    Your task is to analyze the provided C++ code and generate comprehensive unit tests using Google Test framework.
+    
+  constraints:
+    - Use Google Test (gtest) framework
+    - Include Google Mock (gmock) for mocking dependencies
+    - Focus on testing business logic and edge cases
+    - Generate tests for models, controllers, and utilities
+    - Include proper setup and teardown methods
+    - Test both success and failure scenarios
+    - Mock database interactions using Drogon's ORM mocking capabilities
+    - Include parameterized tests where appropriate
+    
+  test_structure:
+    - One test file per source file
+    - Naming convention: "Test{ClassName}.cc"
+    - Include proper includes and namespaces
+    - Use descriptive test names following Given_When_Then pattern
+    
+  coverage_targets:
+    - Aim for 80%+ line coverage
+    - Test all public methods
+    - Test error handling paths
+    - Test boundary conditions
+    - Test null/empty input handling
+    
+  output_format:
+    - Generate complete .cc test files
+    - Include necessary CMakeLists.txt modifications
+    - Provide build instructions
+    - Include mock objects where needed
+    
+  frameworks_to_use:
+    - GoogleTest for unit testing
+    - GoogleMock for mocking
+    - Drogon's testing utilities
+    - JSON manipulation for API testing 
