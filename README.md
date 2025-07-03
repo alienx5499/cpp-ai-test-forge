@@ -3,11 +3,11 @@
 # 🤖 **AI-Powered C++ Unit Test Generator** 🤖  
 ### *Automated Test Generation for C++ Projects using Large Language Models*
 
-[![Build Status](https://img.shields.io/badge/build-passing-success?style=flat-square)](https://github.com/keploy/cpp-ai-test-forge)
+[![Build Status](https://img.shields.io/badge/build-passing-success?style=flat-square)](https://github.com/alienx5499/cpp-ai-test-forge)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)](https://python.org/)
 [![AI Models](https://img.shields.io/badge/AI-Ollama%20%7C%20GitHub%20Models-green?style=flat-square)](https://ollama.ai/)
 [![Framework](https://img.shields.io/badge/Framework-Google%20Test-red?style=flat-square)](https://github.com/google/googletest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://custom-icon-badges.herokuapp.com/github/license/alienx5499/cpp-ai-test-forge?logo=law&logoColor=white)](https://github.com/alienx5499/sortvisioN/blob/main/LICENSE)
 [![Keploy](https://img.shields.io/badge/Keploy-AI%20Test%20Forge-orange?style=flat-square)](https://keploy.io/)
 
 **Day 5 Assignment - Keploy AI Test Forge Program**
@@ -172,7 +172,7 @@ cpp-ai-test-forge/
 
 ```bash
 # Clone and setup
-git clone https://github.com/keploy/cpp-ai-test-forge.git
+git clone https://github.com/alienx5499/cpp-ai-test-forge.git
 cd cpp-ai-test-forge
 
 # Create virtual environment
@@ -470,7 +470,7 @@ We welcome contributions to improve the AI test generator!
 
 1. **Fork the Repository**
    ```bash
-   git fork https://github.com/keploy/cpp-ai-test-forge.git
+   git fork https://github.com/alienx5499/cpp-ai-test-forge.git
    ```
 
 2. **Create Feature Branch**
@@ -520,7 +520,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **🚀 Start generating professional C++ tests in minutes!**
 
 ```bash
-git clone https://github.com/keploy/cpp-ai-test-forge.git
+git clone https://github.com/alienx5499/cpp-ai-test-forge.git
 cd cpp-ai-test-forge
 ./scripts/demo.sh
 ```
@@ -528,8 +528,7 @@ cd cpp-ai-test-forge
 ### 📬 **Support & Community**
 *Questions? Ideas? Join the discussion!*
 
-[![GitHub Issues](https://img.shields.io/badge/Issues-Ask%20Questions-blue?style=for-the-badge&logo=github)](https://github.com/keploy/cpp-ai-test-forge/issues)
-[![Keploy Discord](https://img.shields.io/badge/Discord-Join%20Community-purple?style=for-the-badge&logo=discord)](https://discord.gg/keploy)
+[![GitHub Issues](https://img.shields.io/badge/Issues-Ask%20Questions-blue?style=for-the-badge&logo=github)](https://github.com/alienx5499/cpp-ai-test-forge/issues)
 
 ---
 
