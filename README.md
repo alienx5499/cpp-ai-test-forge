@@ -16,6 +16,28 @@
 
 ---
 
+## 🚀 **Quick Overview**
+
+| Category | Details |
+|----------|---------|
+| 🎯 **Purpose** | Automated C++ unit test generation using AI |
+| 🛠️ **Tech Stack** | Python 3.8+, C++17, CMake, Google Test |
+| 🤖 **AI Models** | Ollama (Local) & GitHub Models (Cloud) |
+| 📊 **Coverage** | 85%+ Line, 80%+ Branch, 90%+ Function |
+| ⚡ **Setup Time** | 5 minutes (Cloud) / 30 minutes (Local) |
+| 📦 **Output** | Professional Google Test suites with mocking |
+
+```bash
+# Quick Start (Cloud AI)
+git clone https://github.com/alienx5499/cpp-ai-test-forge.git
+cd cpp-ai-test-forge
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+./scripts/run_test_generator.sh -m github -n gpt-4o
+```
+
+---
+
 ## 🎯 **What is AI-Powered C++ Unit Test Generator?**
 
 An intelligent test generation system that automatically creates comprehensive unit tests for C++ projects using Large Language Models. Built specifically for the Drogon framework, it analyzes your C++ codebase and generates professional-grade test suites with Google Test and Google Mock.
@@ -74,6 +96,19 @@ An intelligent test generation system that automatically creates comprehensive u
 
 ## ✨ **Features**
 
+### 🔄 **Test Generation Approaches**
+
+| Feature | Traditional Testing | Manual Unit Tests | AI-Powered Generation |
+|---------|-------------------|-------------------|---------------------|
+| **Setup Time** | Hours | Days/Weeks | Minutes |
+| **Coverage** | Limited | High | Very High |
+| **Maintenance** | Manual | Manual | Auto-Generated |
+| **Edge Cases** | Basic | Comprehensive | AI-Identified |
+| **Cost** | Low | Very High | Medium |
+| **Consistency** | Varies | Varies | Consistent |
+| **Framework Knowledge** | Required | Required | Optional |
+| **Updates** | Manual | Manual | Automated |
+
 ### 🧠 **AI-Powered Intelligence**
 - **Smart Code Analysis**: Understands C++ class structures, relationships, and patterns
 - **Context-Aware Generation**: Creates tests based on actual code functionality
@@ -102,18 +137,38 @@ An intelligent test generation system that automatically creates comprehensive u
 
 ## 🏗️ **Architecture**
 
-### 🔄 **8-Step Generation Workflow**
+### 🔄 **Test Generation Pipeline**
 
 ```mermaid
 graph TD
-    A[📖 Source Analysis] --> B[🧠 Initial Generation]
-    B --> C[✨ Test Refinement]
-    C --> D[🔨 Build Tests]
-    D --> E[🔧 Fix Issues]
-    E --> F[📊 Coverage Analysis]
-    F --> G[🎯 Improve Coverage]
-    G --> H[📋 Final Report]
-    
+    subgraph Input
+        A[C++ Source Files] --> B[Source Analysis]
+        Y[YAML Configs] --> B
+    end
+
+    subgraph AI_Processing
+        B --> C[AI Model Selection]
+        C --> D[Initial Test Generation]
+        D --> E[Test Refinement]
+    end
+
+    subgraph Build_Process
+        E --> F[CMake Generation]
+        F --> G[Build Tests]
+        G --> H{Build Success?}
+        H -->|No| I[AI Fix Issues]
+        I --> G
+        H -->|Yes| J[Run Tests]
+    end
+
+    subgraph Analysis
+        J --> K[Coverage Analysis]
+        K --> L{Meet Targets?}
+        L -->|No| M[AI Coverage Improvement]
+        M --> D
+        L -->|Yes| N[Final Report]
+    end
+
     style A fill:#e1f5fe
     style B fill:#f3e5f5
     style C fill:#e8f5e8
@@ -122,16 +177,48 @@ graph TD
     style F fill:#e0f2f1
     style G fill:#fce4ec
     style H fill:#f1f8e9
+    style I fill:#e1f5fe
+    style J fill:#f3e5f5
+    style K fill:#e8f5e8
+    style L fill:#fff3e0
+    style M fill:#ffebee
+    style N fill:#e0f2f1
 ```
 
 ### 🧩 **Component Architecture**
 
-- **AITestGenerator**: Core orchestration engine
-- **Source Analyzer**: C++ code parsing and understanding
-- **AI Interface**: Multi-model API abstraction layer
-- **Test Builder**: CMake and build system management
-- **Coverage Engine**: Metrics collection and reporting
-- **YAML Processor**: Configuration management system
+```mermaid
+classDiagram
+    class TestGenerator {
+        +analyze_source()
+        +generate_tests()
+        +build_tests()
+        +analyze_coverage()
+    }
+    
+    class AIInterface {
+        +select_model()
+        +generate_code()
+        +refine_tests()
+        +fix_issues()
+    }
+    
+    class BuildSystem {
+        +generate_cmake()
+        +compile_tests()
+        +run_tests()
+    }
+    
+    class CoverageAnalyzer {
+        +collect_metrics()
+        +generate_report()
+        +check_targets()
+    }
+
+    TestGenerator --> AIInterface
+    TestGenerator --> BuildSystem
+    TestGenerator --> CoverageAnalyzer
+```
 
 ---
 
@@ -459,6 +546,53 @@ make
 lcov --capture --directory . --output-file coverage.info
 genhtml coverage.info --output-directory ../coverage_reports
 ```
+
+---
+
+## 🔧 **Troubleshooting**
+
+### Common Issues
+
+#### 🚫 AI Model Connection Issues
+```bash
+# If GitHub Models fail
+export GITHUB_TOKEN='your_new_token'  # Try refreshing token
+./scripts/run_test_generator.sh -m github -n gpt-4o --retry
+
+# If Ollama is slow
+ollama pull codellama:7b  # Try smaller model
+./scripts/run_test_generator.sh -m ollama -n codellama:7b
+```
+
+#### 🛠️ Build Problems
+```bash
+# Clean build directory
+cd generated_tests
+rm -rf build/
+cmake -B build
+cmake --build build
+
+# Debug build issues
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
+make VERBOSE=1
+```
+
+#### 📊 Coverage Issues
+```bash
+# Force coverage rebuild
+cmake -B build -DCMAKE_CXX_FLAGS="--coverage"
+make clean && make
+./run_tests --gtest_output="xml:test_results.xml"
+```
+
+### Quick Fixes
+
+| Issue | Solution |
+|-------|----------|
+| **Missing Dependencies** | `./scripts/setup_environment.sh --fix-deps` |
+| **Low Coverage** | `./scripts/run_test_generator.sh --improve-coverage` |
+| **Build Errors** | `./scripts/run_test_generator.sh --fix-build` |
+| **Test Failures** | `./scripts/run_test_generator.sh --refine-tests` |
 
 ---
 
